@@ -36,3 +36,31 @@ myFunction();   //calling function
 console.log(typeof anotherId);
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Stack (Primitive)     ,   Heap(Non-Primitive)
+//here you get copy          //hear you get original values refrence
+
+let myYoutube = 'ridhamkansaradotcom'     //stack 
+
+let anotherName = myYoutube;
+
+anotherName = 'changed_value_name';
+
+console.log(anotherName);
+console.log(myYoutube);
+
+
+let userOne = {                           //Heap
+    email:'ridhamkansara@gmail.com',
+    upi: 'ridham@okicici',
+};
+
+let userTwo = userOne;
+
+// userTwo.email = 'kansararidham3130@gmail.com';
+
+// console.log(userTwo.email);
+console.log(userOne.email);
