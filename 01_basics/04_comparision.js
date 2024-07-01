@@ -18,4 +18,4 @@ console.log(undefined < 0); //  "
 
 // === type + value
 
-console.log("2" === 2);  
+console.log("2" === 2); 
