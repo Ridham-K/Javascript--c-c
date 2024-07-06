@@ -57,8 +57,8 @@ function checkGuess(guess) {
 function displayGuess(guess) {
   userInput.value = '';
   guessSlot.innerHTML += `${guess}, `;
-  numGuess++;
   remaining.innerHTML = `${11 - numGuess}`;
+  numGuess++;
 }
 
 function displayMessage(message) {
@@ -80,7 +80,7 @@ function newGame() {
   newGameButton.addEventListener('click', function (e) {
     randomNumber = parseInt(Math.random() * 100 + 1);
     prevGuess = [];
-    newGuess = 1;
+    numGuess = 1;
     guessSlot.innerHTML = '';
     remaining.innerHTML = `${11 - numGuess}`;
     userInput.removeAttribute('disabled');
