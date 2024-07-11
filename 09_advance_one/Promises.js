@@ -19,3 +19,87 @@ new Promise(function(resolve,reject){
 })
 
 //newPromisethree
+
+const promiseThree = new Promise(function(resolve,reject){
+    setTimeout(function(){
+        resolve({username: "Ridham", email: "rk@gmail.com"})
+    },1000)
+})
+
+promiseThree.then(function(user){
+    console.log(user);
+})
+
+
+const promiseFour = new Promise(function(resolve,reject){
+    setTimeout(function(){
+        let error = true;
+        if(!error){
+            resolve({username:'Ridham',password:1223})
+        } else{
+            reject('Error: Something went wrong')
+        }
+    },1000)
+})
+
+promiseFour
+.then(function(user){
+    console.log(user);
+    console.log(user.username);
+})
+.then(function(username){
+    console.log(username);
+})
+.catch(function (error) {
+    console.log(error)
+})
+.finally(() => console.log('The Promise is either resolved or rejected'))
+
+
+//using 'asyc' and 'await'
+
+const promiseFive = new Promise(function(resolve,reject){
+    setTimeout(function(){
+        let error = false;
+        if(!error){
+            resolve({username:'JavaScript',password:123})
+        } else{
+            reject('Error: JS went wrong')
+        }
+    },1000)
+})
+
+async function consumepromiseFive(){
+    try {
+        const response = await promiseFive
+        console.log(response)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+consumepromiseFive()
+
+// async function getUsers(){
+//     try {
+//         const response = await fetch('https://api.github.com/users/Ridham-K')
+//         const data = await response.json()
+//         console.log(data.followers)
+//     } catch (error) {
+//         console.log('E:',error)
+//     }
+// }
+
+// getUsers()
+
+// another way to write above code
+
+fetch('https://api.github.com/users/Ridham-K')
+.then((response) => {
+    return response.json()
+})
+.then((data) => {
+    console.log(data)
+}).catch((error) => {
+    console.log(error)
+})
